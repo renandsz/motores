@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform alvo;
-    public Vector3 offset;
-    // Start is called before the first frame update
+    private Transform alvo;
+    private Vector3 offset;
+    
     void Start()
     {
+        alvo = GameObject.FindWithTag("Player").transform;
         offset = alvo.position - transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         transform.position = alvo.position - offset;
     }
 }
